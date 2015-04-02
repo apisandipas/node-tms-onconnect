@@ -1,0 +1,16 @@
+{
+    "name": "node-gracenote",
+    "version": "0.0.1",
+    "description": "a simple wrapper for the Gracenote API",
+    "main": "index.js",
+    "scripts": {
+     "test": "node_modules/.bin/mocha -w"
+    },
+    "author": "Bryan Paronto",
+    "private": "true",
+    "license": "private",
+    "devDependencies": {
+        "chai": "^1.10.0",
+        "mocha": "^2.1.0"
+    }
+}
