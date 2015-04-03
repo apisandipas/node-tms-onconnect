@@ -1,16 +1,23 @@
 {
-    "name": "node-gracenote",
-    "version": "0.0.1",
-    "description": "a simple wrapper for the Gracenote API",
-    "main": "index.js",
-    "scripts": {
-     "test": "node_modules/.bin/mocha -w"
-    },
-    "author": "Bryan Paronto",
-    "private": "true",
-    "license": "private",
-    "devDependencies": {
-        "chai": "^1.10.0",
-        "mocha": "^2.1.0"
-    }
+  "name": "node-tms-onconnect",
+  "description": "a simple wrapper for the Gracenote API",
+  "version": "0.0.1",
+  "author": "Bryan Paronto",
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "moment": "^2.9.0",
+    "qs": "^2.4.1",
+    "request-promise": "^0.4.1",
+    "xtend": "^4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0"
+  },
+  "license": "private",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "node_modules/.bin/mocha -w  --timeout 15000"
+  }
 }
