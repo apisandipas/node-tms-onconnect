@@ -25,9 +25,9 @@ api.listings.findLineup()
 
 
 TODO:
-- Public Plan Methods
 - ~~Lineups~~
 - ~~Stations~~
+- Public Plan Methods
 - Programs
 - Series
 - Movies On TV
