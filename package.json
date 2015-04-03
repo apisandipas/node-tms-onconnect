@@ -14,9 +14,8 @@
     "chai": "^1.10.0",
     "mocha": "^2.1.0"
   },
-  "license": "private",
+  "license": "MIT",
   "main": "index.js",
-  "private": "true",
   "scripts": {
     "test": "node_modules/.bin/mocha -w  --timeout 15000"
   }
