@@ -85,7 +85,7 @@ describe('Gracenote API', function(){
 
             });
 
-            it.only('should return channels with airings', function(done){
+            it('should return channels with airings', function(done){
                 api.listings.lineupAirings(config.lineupId).then(function(channels){
 
                     channels[0].airings.should.be.truthy;
@@ -98,5 +98,43 @@ describe('Gracenote API', function(){
         });
 
     });
+
+    describe('Stations API', function(){
+
+        describe('#stationDetails', function(){
+
+            it('should return a single station object', function(done){
+
+                api.stations.stationDetails().then(function(station){
+
+                    station.should.be.truthy;
+                    station.should.be.instanceOf(Array);
+                    station[0].should.be.instanceOf(Object);
+                    station[0].stationId.should.be.truthy;
+                    station[0].callSign.should.be.truthy;
+
+                    done();
+                });
+
+            });
+
+        });
+
+        describe('#stationAirings', function(){
+
+            it.only('should return all of a stations airings', function(done){
+                api.stations.stationAirings().then(function(station){
+
+                    station.should.be.truthy;
+                    station[0].startTime.should.be.truthy;
+                    station[0].endTime.should.be.truthy;
+
+                    done();
+                });
+            })
+
+        });
+
+    })
 
 });
