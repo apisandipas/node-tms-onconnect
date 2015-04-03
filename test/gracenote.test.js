@@ -122,7 +122,7 @@ describe('Gracenote API', function(){
 
         describe('#stationAirings', function(){
 
-            it.only('should return all of a stations airings', function(done){
+            it('should return all of a stations airings', function(done){
                 api.stations.stationAirings().then(function(station){
 
                     station.should.be.truthy;
