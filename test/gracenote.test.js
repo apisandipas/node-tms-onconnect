@@ -1,6 +1,8 @@
 var should = require('chai').should(),
     config = require('./config.json');
 
+
+
 describe('Gracenote API', function(){
 
     var Gracenote, api;
@@ -11,9 +13,13 @@ describe('Gracenote API', function(){
     });
 
     describe('Gracenote', function(){
+
         it('should initialize with an API Key', function(){
+
             api.should.exist;
+
         });
+
     });
 
     describe('Listings API', function(){

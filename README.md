@@ -9,15 +9,15 @@ This library is build on top of Bluebird and uses promises heavily.
 ```javascript
 var api = new Gracenote(api_key);
 
-api.listings.findLineup().then(function(response){
+api.lineups.findLineup().then(function(response){
     
-    //... do something with repsonse.
+    //... do something with response.
 
 });
 
 //or
 
-api.listings.findLineup()
+api.lineups.findLineup()
     .then(doSometing)
     .then(doSometingElse)
     .then(finallyDoSometing);
