@@ -1,6 +1,6 @@
 # TMS OnConnect API
 
-This library is a simple wrapper for the Tribune Media Services OnConnect API by Gracenote.
+This library is a simple wrapper for the TMS OnConnect API by Gracenote.
 Each method returns a "thenable" object.
 
 ## Usage
