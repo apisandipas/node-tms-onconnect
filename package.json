@@ -1,7 +1,7 @@
 {
   "name": "node-tms-onconnect",
   "description": "a simple wrapper for the Gracenote OnConnect API",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Bryan Paronto",
   "dependencies": {
     "moment": "^2.9.0",
@@ -15,8 +15,11 @@
   },
   "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apisandipas/node-tms-onconnect.git"
+  },
   "scripts": {
     "test": "node_modules/.bin/mocha -w  --timeout 15000"
   }
-
 }
