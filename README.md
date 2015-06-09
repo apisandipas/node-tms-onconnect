@@ -22,11 +22,14 @@ api.lineups.findLineup()
     .then(doSometingElse)
     .then(finallyDoSometing);
 ```
+Implemented:
+
+- Lineups 
+- Stations
 
 
 TODO:
-- ~~Lineups~~
-- ~~Stations~~
+
 - Public Plan Methods
 - Programs
 - Series
@@ -35,3 +38,4 @@ TODO:
 - Movies Trailers
 - Sports
 - Celebrities
+- Video and Social APIs
