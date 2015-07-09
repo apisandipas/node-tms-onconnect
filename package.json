@@ -1,7 +1,7 @@
 {
   "name": "node-tms-onconnect",
   "description": "a simple wrapper for the Gracenote OnConnect API",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Bryan Paronto",
   "dependencies": {
     "moment": "^2.9.0",
