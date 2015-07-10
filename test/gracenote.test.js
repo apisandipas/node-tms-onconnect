@@ -24,52 +24,52 @@ describe('Gracenote API', function(){
 
     describe('Listings API', function(){
 
-        describe('#findLineups', function(){
+        describe('#find', function(){
 
             it('should return an array of lineups', function(done){
 
-                api.lineups.findLineups({ postalCode: '90210' }).then(function(lineups){
+                api.lineups.find({ postalCode: '90210' }).then(function(lineups){
 
                     lineups.should.be.instanceOf(Array);
                     lineups.should.be.truthy;
 
                     done();
-                });
+                }).catch(console.error.bind(console));
 
             });
 
         });
 
 
-        describe('#lineupDetails', function(){
+        describe('#details', function(){
 
             it('should return an line up object', function(done){
 
-                api.lineups.lineupDetails(config.lineupId).then(function(lineup){
+                api.lineups.details(config.lineupId).then(function(lineup){
 
                     lineup.should.be.instanceOf(Object);
                     lineup.lineupId.should.equal('USA-TX42500-X');
 
                     done();
-                });
+                }).catch(console.error.bind(console));
 
             });
 
         });
 
 
-        describe('#lineupChannelList', function(){
+        describe('#channels', function(){
 
             it.only('should return an array of channel objects', function(done){
 
-                api.lineups.lineupChannelList(config.lineupId).then(function(channels){
+                api.lineups.channels(config.lineupId).then(function(channels){
 
                     channels.should.be.instanceOf(Array);
                     channels[0].stationId.should.be.truthy;
                     channels[0].callSign.should.be.truthy;
 
                     done();
-                });
+                }).catch(console.error.bind(console));
 
             });
 
@@ -80,25 +80,25 @@ describe('Gracenote API', function(){
 
             it('should contain an array of channels', function(done){
 
-                api.lineups.lineupAirings(config.lineupId).then(function(channels){
+                api.lineups.airings(config.lineupId).then(function(channels){
 
                     channels.should.be.instanceOf(Array);
                     channels[0].stationId.should.be.truthy;
                     channels[0].callSign.should.be.truthy;
 
                     done();
-                })
+                }).catch(console.error.bind(console));
 
             });
 
             it('should return channels with airings', function(done){
-                api.lineups.lineupAirings(config.lineupId).then(function(channels){
+                api.lineups.airings(config.lineupId).then(function(channels){
 
                     channels[0].airings.should.be.truthy;
                     channels[0].airings.should.be.instanceOf(Array);
 
                     done();
-                })
+                }).catch(console.error.bind(console));
             })
 
         });
@@ -111,7 +111,7 @@ describe('Gracenote API', function(){
 
             it('should return a single station object', function(done){
 
-                api.stations.stationDetails().then(function(station){
+                api.stations.details().then(function(station){
 
                     station.should.be.truthy;
                     station.should.be.instanceOf(Array);
@@ -129,7 +129,7 @@ describe('Gracenote API', function(){
         describe('#stationAirings', function(){
 
             it('should return all of a stations airings', function(done){
-                api.stations.stationAirings().then(function(station){
+                api.stations.airings().then(function(station){
 
                     station.should.be.truthy;
                     station[0].startTime.should.be.truthy;
