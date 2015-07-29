@@ -1,146 +1,179 @@
-var should = require('chai').should(),
-    config = require('./config.json');
+// var should = require('chai').should(),
+//     config = require('./config.json');
 
 
+// describe('Gracenote API', function(){
 
-describe('Gracenote API', function(){
+//     var Gracenote, api;
 
-    var Gracenote, api;
+//     beforeEach(function(){
+//         Gracenote = require('../lib/gracenote');
+//         api = new Gracenote(config.apiKey);
+//     });
 
-    beforeEach(function(){
-        Gracenote = require('../lib/gracenote');
-        api = new Gracenote(config.apiKey);
-    });
+//     describe('Series API', function() {
 
-    describe('Gracenote', function(){
+//         xdescribe('#details', function () {});
 
-        it('should initialize with an API Key', function(){
+//         describe('#airings', function () {
 
-            api.should.exist;
+//                 var seriesId = '185044';
 
-        });
-
-    });
-
-    describe('Listings API', function(){
-
-        describe('#find', function(){
-
-            it('should return an array of lineups', function(done){
-
-                api.lineups.find({ postalCode: '90210' }).then(function(lineups){
-
-                    lineups.should.be.instanceOf(Array);
-                    lineups.should.be.truthy;
-
-                    done();
-                }).catch(console.error.bind(console));
-
-            });
-
-        });
+//                 it('should return  a collection of series airings', function (done) {
+//                     api.series.airings(seriesId).then(function(airings) {
+//                         airings.should.be.instanceOf(Array);
+//                         airings[0].program.seriesId.should.equal(seriesId);
+//                         done();
+//                     })
+//                 });
 
 
-        describe('#details', function(){
+//                 it('should return a collection the correct series by id', function (done) {
+//                     api.series.airings(seriesId).then(function(airings) {
+//                         airings[0].program.seriesId.should.equal(seriesId);
+//                         done();
+//                     })
+//                 });
+            
+//         });
 
-            it('should return an line up object', function(done){
+//     });
 
-                api.lineups.details(config.lineupId).then(function(lineup){
-
-                    lineup.should.be.instanceOf(Object);
-                    lineup.lineupId.should.equal('USA-TX42500-X');
-
-                    done();
-                }).catch(console.error.bind(console));
-
-            });
-
-        });
+// });
 
 
-        describe('#channels', function(){
+// *
+//  *
+//  *    xdescribe('Gracenote', function(){
 
-            it.only('should return an array of channel objects', function(done){
+//         it('should initialize with an API Key', function(){
 
-                api.lineups.channels(config.lineupId).then(function(channels){
+//             api.should.exist;
 
-                    channels.should.be.instanceOf(Array);
-                    channels[0].stationId.should.be.truthy;
-                    channels[0].callSign.should.be.truthy;
+//         });
 
-                    done();
-                }).catch(console.error.bind(console));
+//     });
 
-            });
+//     xdescribe('Listings API', function(){
 
-        });
+//         describe('#find', function(){
+
+//             it('should return an array of lineups', function(done){
+
+//                 api.lineups.find({ postalCode: '90210' }).then(function(lineups){
+
+//                     lineups.should.be.instanceOf(Array);
+//                     lineups.should.be.truthy;
+
+//                     done();
+//                 }).catch(console.error.bind(console));
+
+//             });
+
+//         });
 
 
-        describe('#lineupAirings', function(){
+//         describe('#details', function(){
 
-            it('should contain an array of channels', function(done){
+//             it('should return an line up object', function(done){
 
-                api.lineups.airings(config.lineupId).then(function(channels){
+//                 api.lineups.details(config.lineupId).then(function(lineup){
 
-                    channels.should.be.instanceOf(Array);
-                    channels[0].stationId.should.be.truthy;
-                    channels[0].callSign.should.be.truthy;
+//                     lineup.should.be.instanceOf(Object);
+//                     lineup.lineupId.should.equal('USA-TX42500-X');
 
-                    done();
-                }).catch(console.error.bind(console));
+//                     done();
+//                 }).catch(console.error.bind(console));
 
-            });
+//             });
 
-            it('should return channels with airings', function(done){
-                api.lineups.airings(config.lineupId).then(function(channels){
+//         });
 
-                    channels[0].airings.should.be.truthy;
-                    channels[0].airings.should.be.instanceOf(Array);
 
-                    done();
-                }).catch(console.error.bind(console));
-            })
+//         xdescribe('#channels', function(){
 
-        });
+//             it.only('should return an array of channel objects', function(done){
 
-    });
+//                 api.lineups.channels(config.lineupId).then(function(channels){
 
-    describe('Stations API', function(){
+//                     channels.should.be.instanceOf(Array);
+//                     channels[0].stationId.should.be.truthy;
+//                     channels[0].callSign.should.be.truthy;
 
-        describe('#stationDetails', function(){
+//                     done();
+//                 }).catch(console.error.bind(console));
 
-            it('should return a single station object', function(done){
+//             });
 
-                api.stations.details().then(function(station){
+//         });
 
-                    station.should.be.truthy;
-                    station.should.be.instanceOf(Array);
-                    station[0].should.be.instanceOf(Object);
-                    station[0].stationId.should.be.truthy;
-                    station[0].callSign.should.be.truthy;
 
-                    done();
-                });
+//         describe('#lineupAirings', function(){
 
-            });
+//             it('should contain an array of channels', function(done){
 
-        });
+//                 api.lineups.airings(config.lineupId).then(function(channels){
 
-        describe('#stationAirings', function(){
+//                     channels.should.be.instanceOf(Array);
+//                     channels[0].stationId.should.be.truthy;
+//                     channels[0].callSign.should.be.truthy;
 
-            it('should return all of a stations airings', function(done){
-                api.stations.airings().then(function(station){
+//                     done();
+//                 }).catch(console.error.bind(console));
 
-                    station.should.be.truthy;
-                    station[0].startTime.should.be.truthy;
-                    station[0].endTime.should.be.truthy;
+//             });
 
-                    done();
-                });
-            })
+//             it('should return channels with airings', function(done){
+//                 api.lineups.airings(config.lineupId).then(function(channels){
 
-        });
+//                     channels[0].airings.should.be.truthy;
+//                     channels[0].airings.should.be.instanceOf(Array);
 
-    })
+//                     done();
+//                 }).catch(console.error.bind(console));
+//             })
 
-});
+//         });
+
+//     });
+
+//     xdescribe('Stations API', function(){
+
+//         describe('#stationDetails', function(){
+
+//             it('should return a single station object', function(done){
+
+//                 api.stations.details().then(function(station){
+
+//                     station.should.be.truthy;
+//                     station.should.be.instanceOf(Array);
+//                     station[0].should.be.instanceOf(Object);
+//                     station[0].stationId.should.be.truthy;
+//                     station[0].callSign.should.be.truthy;
+
+//                     done();
+//                 });
+
+//             });
+
+//         });
+
+//         describe('#airings', function(){
+
+//             it('should return all of a stations airings', function(done){
+//                 api.stations.airings().then(function(station){
+
+//                     station.should.be.truthy;
+//                     station[0].startTime.should.be.truthy;
+//                     station[0].endTime.should.be.truthy;
+
+//                     done();
+//                 });
+//             })
+
+//         });
+
+//     });
+//  *
+//  * 
+//  
